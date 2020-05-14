@@ -50,6 +50,36 @@ public interface JdbcConfiguration extends Configuration {
     public static final Field PORT = Field.create("port", "Port of the database");
 
     /**
+     * A field for the hostname of the ssh jumpserver. There is no default value.
+     */
+    public static final Field SSH_HOSTNAME = Field.create("sshhost", "Hostname of the ssh jumpserver");
+
+    /**
+     * A field for the username of the ssh jumpserver. There is no default value.
+     */
+    public static final Field SSH_USER = Field.create("sshuser", "Username of the ssh jumpserver");
+
+    /**
+     * A field for the private key of the ssh jumpserver. There is no default value.
+     */
+    public static final Field SSH_PKEY = Field.create("sshpkey", "Private key of the ssh jumpserver");
+
+    /**
+     * A field for the path to the private key of the ssh jumpserver. There is no default value.
+     */
+    public static final Field SSH_KEY_FILE = Field.create("sshkeyfile", "Path to the private key of the ssh jumpserver");
+
+    /**
+     * A field for the key passphrase of the ssh jumpserver. There is no default value.
+     */
+    public static final Field SSH_PASSPHRASE = Field.create("sshpass", "Passphrase for the private key of the ssh jumpserver");
+
+    /**
+     * A field for the port of the ssh jumpserver. There is no default value.
+     */
+    public static final Field SSH_PORT = Field.create("sshport", "Port of the ssh jumpserver");
+
+    /**
      * A semicolon separated list of SQL statements to be executed when the connection to database is established.
      * Typical use-case is setting of session parameters. There is no default value.
      */
@@ -59,7 +89,7 @@ public interface JdbcConfiguration extends Configuration {
      * The set of names of the pre-defined JDBC configuration fields, including {@link #DATABASE}, {@link #USER},
      * {@link #PASSWORD}, {@link #HOSTNAME}, and {@link #PORT}.
      */
-    public static Set<String> ALL_KNOWN_FIELDS = Collect.unmodifiableSet(Field::name, DATABASE, USER, PASSWORD, HOSTNAME, PORT, ON_CONNECT_STATEMENTS);
+    public static Set<String> ALL_KNOWN_FIELDS = Collect.unmodifiableSet(Field::name, DATABASE, USER, PASSWORD, HOSTNAME, PORT, ON_CONNECT_STATEMENTS, SSH_HOSTNAME, SSH_USER, SSH_PKEY, SSH_KEY_FILE, SSH_PORT, SSH_PASSPHRASE);
 
     /**
      * Obtain a {@link JdbcConfiguration} adapter for the given {@link Configuration}.
@@ -144,6 +174,66 @@ public interface JdbcConfiguration extends Configuration {
          */
         default Builder withPort(int port) {
             return with(PORT, port);
+        }
+
+        /**
+         * Use the given ssh hostname in the resulting configuration.
+         *
+         * @param sshHostname the hostname for the ssh connection
+         * @return this builder object so methods can be chained together; never null
+         */
+        default Builder withSshHostname(String sshHostname) {
+            return with(SSH_HOSTNAME, sshHostname);
+        }
+
+        /**
+         * Use the given ssh user in the resulting configuration.
+         *
+         * @param sshUsername the username for the ssh connection
+         * @return this builder object so methods can be chained together; never null
+         */
+        default Builder withSshUsername(String sshUsername) {
+            return with(SSH_USER, sshUsername);
+        }
+
+        /**
+         * Use the given ssh private key in the resulting configuration.
+         *
+         * @param sshPkey the private key for the ssh connection
+         * @return this builder object so methods can be chained together; never null
+         */
+        default Builder withSshPkey(String sshPkey) {
+            return with(SSH_PKEY, sshPkey);
+        }
+
+        /**
+         * Use the given ssh private key file path in the resulting configuration.
+         *
+         * @param sshKeyFile the path to the private key for the ssh connection
+         * @return this builder object so methods can be chained together; never null
+         */
+        default Builder withSsshKeyFile(String sshKeyFile) {
+            return with(SSH_KEY_FILE, sshKeyFile);
+        }
+
+        /**
+         * Use the given ssh passphrase in the resulting configuration.
+         *
+         * @param sshPassphrase the passphrase to the private key for the ssh connection
+         * @return this builder object so methods can be chained together; never null
+         */
+        default Builder withSshPassphrase(String sshPassphrase) {
+            return with(SSH_PASSPHRASE, sshPassphrase);
+        }
+
+        /**
+         * Use the given ssh port in the resulting configuration.
+         *
+         * @param sshPort the port for the ssh connection
+         * @return this builder object so methods can be chained together; never null
+         */
+        default Builder withPort(String sshPort) {
+            return with(SSH_PORT, sshPort);
         }
     }
 
@@ -320,5 +410,59 @@ public interface JdbcConfiguration extends Configuration {
      */
     default String getPassword() {
         return getString(PASSWORD);
+    }
+
+    /**
+     * Get the sshhost property from the configuration.
+     *
+     * @return the specified or default sshhost value, or null if there is none.
+     */
+    default String getSshHost() {
+        return getString(SSH_HOSTNAME);
+    }
+
+    /**
+     * Get the sshuser property from the configuration.
+     *
+     * @return the specified or default sshuser value, or null if there is none.
+     */
+    default String getSshUser() {
+        return getString(SSH_USER);
+    }
+
+    /**
+     * Get the sshpkey property from the configuration.
+     *
+     * @return the specified or default sshpkey value, or null if there is none.
+     */
+    default String getSshPKey() {
+        return getString(SSH_PKEY);
+    }
+
+    /**
+     * Get the sshkeyfile property from the configuration.
+     *
+     * @return the specified or default sshkeyfile value, or null if there is none.
+     */
+    default String getSshKeyFile() {
+        return getString(SSH_KEY_FILE);
+    }
+
+    /**
+     * Get the sshpass property from the configuration.
+     *
+     * @return the specified or default sshpass value, or null if there is none.
+     */
+    default String getSshPassphrase() {
+        return getString(SSH_PASSPHRASE);
+    }
+
+    /**
+     * Get the sshport property from the configuration.
+     *
+     * @return the specified or default sshport value, or null if there is none.
+     */
+    default String getSshPort() {
+        return getString(SSH_PORT);
     }
 }
