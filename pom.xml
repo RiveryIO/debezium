@@ -56,7 +56,7 @@
         <release>8</release>
 
         <!-- Kafka and it's dependencies MUST reflect what the Kafka version uses -->
-        <version.kafka>2.5.0</version.kafka>
+        <version.kafka>3.7.0</version.kafka>
         <version.kafka.scala>2.12</version.kafka.scala>
         <version.curator>4.2.0</version.curator>
         <version.zookeeper>3.5.7</version.zookeeper>
@@ -143,13 +143,13 @@
         <format.imports.goal>sort</format.imports.goal>
 
         <!-- No debug options by default -->
-        <debug.argline />
+        <debug.argline/>
 
         <!-- No modules options by default -->
-        <modules.argline />
+        <modules.argline/>
 
         <!-- No test options by default -->
-        <test.argline />
+        <test.argline/>
 
         <!-- Assembly configuration -->
         <assembly.descriptor>connector-distribution</assembly.descriptor>
