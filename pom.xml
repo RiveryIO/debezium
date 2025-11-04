@@ -73,7 +73,7 @@
         <version.mysql.binlog>0.19.1</version.mysql.binlog>
         <version.mongo.server>3.6</version.mongo.server>
         <version.mongo.driver>3.12.3</version.mongo.driver>
-        <version.sqlserver.driver>7.2.2.jre8</version.sqlserver.driver>
+        <version.sqlserver.driver>10.2.4.jre8</version.sqlserver.driver>
 
         <!-- Connectors -->
         <version.com.google.protobuf>3.8.0</version.com.google.protobuf>
@@ -143,13 +143,13 @@
         <format.imports.goal>sort</format.imports.goal>
 
         <!-- No debug options by default -->
-        <debug.argline />
+        <debug.argline/>
 
         <!-- No modules options by default -->
-        <modules.argline />
+        <modules.argline/>
 
         <!-- No test options by default -->
-        <test.argline />
+        <test.argline/>
 
         <!-- Assembly configuration -->
         <assembly.descriptor>connector-distribution</assembly.descriptor>
