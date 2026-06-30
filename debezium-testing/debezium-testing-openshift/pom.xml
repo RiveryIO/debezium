@@ -13,7 +13,7 @@
   <name>Debezium OpenShift integration test-suite</name>
 
   <properties>
-    <version.fabric8.client>4.6.4</version.fabric8.client>
+    <version.fabric8.client>7.8.0</version.fabric8.client>
     <version.strimzi>0.16.2</version.strimzi>
     <version.junit5>5.5.1</version.junit5>
     <version.junit5.pioneer>0.5.1</version.junit5.pioneer>
