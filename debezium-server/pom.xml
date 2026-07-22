@@ -12,7 +12,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <version.kinesis>2.13.13</version.kinesis>
+        <version.kinesis>2.48.4</version.kinesis>
 
         <!-- Assembly configuration -->
         <assembly.descriptor>server-distribution</assembly.descriptor>
